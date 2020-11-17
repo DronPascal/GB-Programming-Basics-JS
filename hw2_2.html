@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	var s, p;
+	do {
+    	s = prompt("Введите сумму вклада:");
+    } while (isNaN(s) || s < 0);
+    document.write("Cумма вклада: "+ s + "<br>");
+
+    do {
+    	p = prompt("Введите процент по вкладу:");
+    } while (isNaN(p) || p < 0);
+    document.write("Процент по вкладу: " + p + "%<br>");
+	
+	document.write("<br>Размер вклада на конец:<br>");
+    for (var i = 1; i <= 5; i++) {
+    	s = s * (1 + p / 100);
+    	document.write(i +"-ого года: " + s.toFixed(2)+"<br>");
+    }
+</script>

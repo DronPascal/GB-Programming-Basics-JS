@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	var maxNumber = 100;  //можно добавить ввод maxNumber игроками, но этого не требовалось по заданию.
+	var number = parseInt(Math.random()*maxNumber);
+	var playerCount = 2
+	var player = parseInt(Math.random()*playerCount)+1;  //пусть рандом решает кому ходить первым
+	alert("Сыграем в \"Угадай число\" от 0 до " + maxNumber + "?");
+
+	do {
+		player = (player == playerCount) ? 1 : ++player;
+		var answer = prompt("Игрок " + player + ", назовите ваше число!\nИли введите любой текст для выхода из игры");
+
+		if (isNaN(answer) || answer === null) {
+			player = 0;
+			break;
+		}
+		else if (answer < number)
+			alert("ОТГАДЫВАЕМОЕ число БОЛЬШЕ введенного вами (" + answer + ")");
+		else if (answer > number)
+			alert("ОТГАДЫВАЕМОЕ число МЕНЬШЕ введенного вами (" + answer + ")");
+	} while (answer!=number)
+
+	if (player == 0) 
+		alert("Игра прервана.");
+	else
+	alert("Игрок " + player + " побеждает!");
+</script>
